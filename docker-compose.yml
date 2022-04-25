@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+  codequiz:
+    build: .
+    ports:
+      - "8085:8085"
+    environment:
+      - spring.data.mongodb.host=mongodb
+    depends_on:
+      - mongodb
